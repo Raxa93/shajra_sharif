@@ -1,4 +1,3 @@
-
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,19 +14,19 @@ class VideoPlayerScreen extends StatefulWidget {
 }
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+  late VideoPlayerController _videoPlayerController;
+  late ChewieController _chewieController;
 
-    final VideoPlayerController _videoPlayerController = VideoPlayerController.asset('assets/shajraSahirf.mp4');
-   late ChewieController _chewieController ;
-
-   @override
+  @override
   void initState() {
     super.initState();
-    // _videoPlayerController =
-    _videoPlayerController.initialize();
+    _videoPlayerController =
+        VideoPlayerController.asset('assets/shajraSahirf.mp4');
     _chewieController = ChewieController(
-      autoInitialize: true,
-        videoPlayerController: _videoPlayerController,
-        aspectRatio: 16/9
+      videoPlayerController: _videoPlayerController,
+      aspectRatio: 16 / 9,
+      autoPlay: false,
+      looping: false,
     );
   }
 
@@ -71,11 +70,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 decoration: AppStyles.shadowBigContainer,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
-
-
+                  children: [
                     AspectRatio(
-                        aspectRatio: 16/9,
+                        aspectRatio: 16 / 9,
                         child: Chewie(controller: _chewieController))
                     // ClipRRect(
                     //   borderRadius: BorderRadius.circular(20),
