@@ -9,6 +9,7 @@ import 'package:shajra_shareef/screen/siz_kalmas_screen.dart';
 import 'package:shajra_shareef/screen/video_player_screen.dart';
 import 'package:shajra_shareef/styles/app_styles.dart';
 
+import '../custom_widgets/nav_drawer.dart';
 import 'audio_player.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
       },
       child: SafeArea(
           child: Scaffold(
+            drawer:  CustomNavBar(),
         appBar: AppBar(
           title: const Text('Home'),
         ),
